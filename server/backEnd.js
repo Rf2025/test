@@ -2,13 +2,15 @@ const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
 require('dotenv').config();
+const cors = require('cors');
+
 
 const app = express();
 const PORT = process.env.PORT || 8200;
 
 
 app.use(express.json());
-
+app.use(cors());
 
 app.set('trust proxy', 1);
 
@@ -35,7 +37,7 @@ connection.connect((err) => {
 });
 
 // Route to fetch products from the database
-app.get('products/product/items', (req, res) => {
+app.get('/product/items', (req, res) => {
     connection.query('SELECT product_name, product_description, product_image, product_price,setup_type FROM products', (err, results) => {
         if (err) {
             console.error('Error fetching products', err);
