@@ -7,7 +7,7 @@ function Products() {
     
 
     useEffect(() => {
-        fetch('/product/items')
+        fetch('https://test-4v3c.onrender.com/products/product/items')
             .then(res => res.json())
             .then(data => {
                 setItems(data);

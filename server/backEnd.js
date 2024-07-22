@@ -35,7 +35,7 @@ connection.connect((err) => {
 });
 
 // Route to fetch products from the database
-app.get('/product/items', (req, res) => {
+app.get('products/product/items', (req, res) => {
     connection.query('SELECT product_name, product_description, product_image, product_price,setup_type FROM products', (err, results) => {
         if (err) {
             console.error('Error fetching products', err);
